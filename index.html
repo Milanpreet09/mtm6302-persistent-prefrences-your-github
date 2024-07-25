@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persistent Preferences</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 12px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #dcdcdc;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .controls {
+            margin-bottom: 15px;
+        }
+
+        .controls label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .controls input, .controls select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .controls input[type="color"] {
+            padding: 0;
+            width: auto;
+        }
+
+        button {
+            background-color: #0056b3;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+
+        .content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            margin-bottom: 20px;
+        }
+
+        .content h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #0056b3;
+        }
+
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #dcdcdc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Customize Page Appearance</h1>
+            <div class="controls">
+                <label for="bg-color">Background Color:</label>
+                <input type="color" id="bg-color">
+            </div>
+            <div class="controls">
+                <label for="font-color">Font Color:</label>
+                <input type="color" id="font-color">
+            </div>
+            <div class="controls">
+                <label for="font-size">Font Size:</label>
+                <input type="number" id="font-size" min="10" max="50">
+            </div>
+            <div class="controls">
+                <label for="border-color">Border Color:</label>
+                <input type="color" id="border-color">
+            </div>
+            <div class="controls">
+                <label for="border-width">Border Width:</label>
+                <input type="number" id="border-width" min="0" max="20">
+            </div>
+            <div class="controls">
+                <label for="text-align">Text Alignment:</label>
+                <select id="text-align">
+                    <option value="left">Left</option>
+                    <option value="center">Center</option>
+                    <option value="right">Right</option>
+                </select>
+            </div>
+            <button id="save">Save Preferences</button>
+        </div>
+        
+        <div class="content" id="home">
+            <h2>Welcome to My Website</h2>
+            <p>
+                Hello, my name is Milanpreet Singh, and I am from India. I am currently pursuing a degree in web development. 
+                My journey into the world of web development began with a curiosity about how websites are created and 
+                function. Over time, this curiosity transformed into a passion for designing and developing interactive 
+                and user-friendly web applications. Through my studies, I have acquired skills in HTML, CSS, and JavaScript, 
+                and I am constantly learning new technologies to enhance my capabilities. I am particularly interested in 
+                creating dynamic and responsive web pages that provide an optimal user experience across different devices 
+                and browsers. This page demonstrates the ability to customize and persist user preferences for the page's 
+                appearance, showcasing the practical application of local storage in web development.
+            </p>
+        </div>
+
+        <div class="content" id="about">
+            <h2>About</h2>
+            <p>
+                This page allows users to customize the background color, font color, font size, border color, border width, 
+                and text alignment, and saves these preferences using local storage. The customization controls above enable 
+                users to personalize their viewing experience. Every time you visit this page, your preferences will be loaded 
+                and applied, providing a consistent and personalized experience.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Milanpreet Singh. All rights reserved.</p>
+        <p>Email: milanpreet@example.com | Phone: +91-123-456-7890</p>
+        <p>
+            <a href="https://www.linkedin.com/in/milanpreet-singh" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com/your-github-username" target="_blank">GitHub</a>
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
